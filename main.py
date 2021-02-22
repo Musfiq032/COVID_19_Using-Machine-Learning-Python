@@ -2,14 +2,12 @@
 
 
 import pandas as pd
-from IPython.core import history
-from sklearn.metrics import accuracy_score, confusion_matrix
+from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from PIL import Image
 import streamlit as st
-from matplotlib import pyplot as plt
-import numpy as nm
+
 
 # Title
 st.write("""
@@ -49,58 +47,58 @@ st.sidebar.write("Symptoms")
 # Get the feature
 
 def get_user_input():
-    fever = st.sidebar.selectbox("Fever", ("Yes", "NO"))
+    fever = st.sidebar.selectbox("Fever", ("Yes", "No"))
     if fever == "Yes":
-        fever = 1;
+        fever = 1
     else:
-        fever = 0;
+        fever = 0
 
-    tiredness = st.sidebar.selectbox("Tiredness", ("Yes", "NO"))
+    tiredness = st.sidebar.selectbox("Tiredness", ("Yes", "No"))
 
     if tiredness == "Yes":
-        tiredness = 1;
+        tiredness = 1
     else:
-        tiredness = 0;
-    dryCough = st.sidebar.selectbox("Dry Cough", ("Yes", "NO"))
+        tiredness = 0
+    dryCough = st.sidebar.selectbox("Dry Cough", ("Yes", "No"))
     if dryCough == "Yes":
-        dryCough = 1;
+        dryCough = 1
     else:
-        dryCough = 0;
+        dryCough = 0
 
-    difficultyinBreathing = st.sidebar.selectbox("Difficulty In Breathing", ("Yes", "NO"))
+    difficultyinBreathing = st.sidebar.selectbox("Difficulty In Breathing", ("Yes", "No"))
 
     if difficultyinBreathing == "Yes":
-        difficultyinBreathing = 1;
+        difficultyinBreathing = 1
     else:
-        difficultyinBreathing = 0;
+        difficultyinBreathing = 0
 
-    soreThroat = st.sidebar.selectbox("Sore Throat", ("Yes", "NO"))
+    soreThroat = st.sidebar.selectbox("Sore Throat", ("Yes", "No"))
     if soreThroat == "Yes":
-        soreThroat = 1;
+        soreThroat = 1
     else:
-        soreThroat = 0;
+        soreThroat = 0
 
-    pains = st.sidebar.selectbox("Pain", ("Yes", "NO"))
+    pains = st.sidebar.selectbox("Pain", ("Yes", "No"))
     if pains == "Yes":
         pains = 1;
     else:
-        pains = 0;
-    nasal_congestion = st.sidebar.selectbox("Nasal Congestion", ("Yes", "NO"))
+        pains = 0
+    nasal_congestion = st.sidebar.selectbox("Nasal Congestion", ("Yes", "No"))
     if nasal_congestion == "Yes":
-        nasal_congestion = 1;
+        nasal_congestion = 1
     else:
-        nasal_congestion = 0;
-    runny_nose = st.sidebar.selectbox("Runny nose", ("Yes", "NO"))
+        nasal_congestion = 0
+    runny_nose = st.sidebar.selectbox("Runny nose", ("Yes", "No"))
     if runny_nose == "Yes":
-        runny_nose = 1;
+        runny_nose = 1
     else:
-        runny_nose = 0;
+        runny_nose = 0
 
-    diarrhea = st.sidebar.selectbox("Diarrhea", ("Yes", "No"))
+    diarrhea = st.sidebar.selectbox("Diarrhea", ("No", "Yes"))
     if diarrhea == "Yes":
-        diarrhea = 1;
+        diarrhea = 1
     else:
-        diarrhea = 0;
+        diarrhea = 0
 
         user_data = {'fever': fever,
                      'tiredness': tiredness,
